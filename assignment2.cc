@@ -113,21 +113,23 @@ int search( const vector<int>& inputVec, const vector<int>& searchVec,
 }
 
 /***************************************************************
-  
+ sortVector
 
- Use: 
+ Use: Sorts a vector in ascending order. 
 
- Parameters: 
+ Parameters: Takes a reference to a vector of type integer 
+ name inputVec.
 
- Returns: 
+ Returns: None. 
 
  ***************************************************************/
 void sortVector (vector<int>& inputVec) 
 {
+    sort(inputVec.begin(), inputVec.end());
 }
 
 /***************************************************************
-  
+ printStat
 
  Use: 
 
@@ -141,7 +143,7 @@ void printStat (int totalSucCnt, int vec_size)
 }
 
 /***************************************************************
-  
+ print_vec
 
  Use: 
 
