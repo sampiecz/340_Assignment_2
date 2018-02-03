@@ -13,12 +13,15 @@
 #include <algorithm>
 #include <iostream>
 #include <vector>
+#include <iostream>
 #include <cstdlib>
 
 using std::cout;
 using std::endl;
 using std::vector;
 using std::srand;
+using std::sort;
+using std::setw;
 
 const int DATA_SIZE = 100;
 const int SEARCH_SIZE = 50;
@@ -131,11 +134,13 @@ void sortVector (vector<int>& inputVec)
 /***************************************************************
  printStat
 
- Use: 
+ Use: Prints the percent of successful searches as floating 
+ point numbers.
 
- Parameters: 
+ Parameters: An int called totalSucCnt, and an int called
+ vec_size.
 
- Returns: 
+ Returns: None. 
 
  ***************************************************************/
 void printStat (int totalSucCnt, int vec_size) 
@@ -145,15 +150,28 @@ void printStat (int totalSucCnt, int vec_size)
 /***************************************************************
  print_vec
 
- Use: 
+ Use: Prints the contents of vector. 
 
- Parameters: 
+ Parameters: A reference to a constant vector of type int called
+ vec.
 
- Returns: 
+ Returns: None. 
 
  ***************************************************************/
 void print_vec( const vector<int>& vec )
 {
+    const int ITEM_W = 6;
+    const int NO_ITEMS = 10;
+    vector<int>::const_iterator it;
+    for (it = vec.begin(); it != vec.end(); it++)
+    {
+        cout << setw(ITEM_W) << *it;
+        if ((it - vec.begin()) % NO_ITEMS == 7)
+        { 
+            cout << endl;
+        }
+    }
+
 }
 
 int main() {
