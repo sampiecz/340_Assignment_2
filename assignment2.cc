@@ -45,18 +45,20 @@ void genRndNums( vector<int>& v, int seed )
 	// calls srand with the seed value seed
 	srand(seed);
 
+    // vector to copy results into
+    vector<int> unecessary_vector;
+
     vector<int>::const_iterator it;
 	for (it = v.begin(); it != v.end(); it++)
 	{	
 		// generates random integers by calling rand()
 		int randomIntegers = rand() % 100 + 1;
 
-		// so I can see what is going on 
-		cout << randomIntegers << endl;
-
 		// fills up vector with random number
-		v[*it] = randomIntegers;
+		unecessary_vector.push_back(randomIntegers);
 	}
+
+    v.swap(unecessary_vector);
 
 }
 
@@ -126,12 +128,23 @@ bool binarySearch( const vector<int>& inputVec, int x)
 int search( const vector<int>& inputVec, const vector<int>& searchVec,
             bool (*p)( const vector<int>&, int) )
 {
+    int counter = 0;
+
     vector<int>::const_iterator it;
     for(it = searchVec.begin(); it != searchVec.end(); it++)
     {
         // pretty sure this is wrong
-        p(inputVec, *it);
+        if(p(inputVec, *it))
+        {
+            counter += 1;
+        }
+        else
+        {
+            continue;
+        }
     }
+
+    return counter;
 }
 
 /***************************************************************
@@ -164,6 +177,7 @@ void sortVector (vector<int>& inputVec)
  ***************************************************************/
 void printStat (int totalSucCnt, int vec_size) 
 {
+    cout << totalSucCnt << "|" << vec_size << endl;
     cout << vec_size / totalSucCnt * 100 << "%" << endl;
 }
 
@@ -202,7 +216,7 @@ int main() {
 
     cout << "----- Data source: " << inputVec.size() << " randomly generated numbers ------" << endl;
     print_vec( inputVec );
-    cout << "----- " << searchVec.size() << " random numbers to be searched -------" << endl;
+    cout << "\n----- " << searchVec.size() << " random numbers to be searched -------" << endl;
     print_vec( searchVec );
 
     cout << "\nConducting linear search on unsorted data source ..." << endl;
