@@ -116,7 +116,7 @@ bool binarySearch( const vector<int>& inputVec, int x)
 /***************************************************************
  search
 
- Use:  
+ Use: Returns the amount of times a search was successful. 
 
  Parameters: Two references to a constant vector of type integer
  named inputVec and searchVec. A pointer to a function called p
@@ -177,8 +177,9 @@ void sortVector (vector<int>& inputVec)
  ***************************************************************/
 void printStat (int totalSucCnt, int vec_size) 
 {
-    cout << totalSucCnt << "|" << vec_size << endl;
-    cout << vec_size / totalSucCnt * 100 << "%" << endl;
+    float success = totalSucCnt;
+    float size = vec_size;
+    cout << "Success rate: " << ((success / size) * 100) << "%" << endl;
 }
 
 /***************************************************************
@@ -200,7 +201,7 @@ void print_vec( const vector<int>& vec )
     for (it = vec.begin(); it != vec.end(); it++)
     {
         cout << setw(ITEM_W) << *it;
-        if ((it - vec.begin()) % NO_ITEMS == 7)
+        if ((it - vec.begin()) % NO_ITEMS == 9)
         { 
             cout << endl;
         }
@@ -216,7 +217,7 @@ int main() {
 
     cout << "----- Data source: " << inputVec.size() << " randomly generated numbers ------" << endl;
     print_vec( inputVec );
-    cout << "\n----- " << searchVec.size() << " random numbers to be searched -------" << endl;
+    cout << "----- " << searchVec.size() << " random numbers to be searched -------" << endl;
     print_vec( searchVec );
 
     cout << "\nConducting linear search on unsorted data source ..." << endl;
