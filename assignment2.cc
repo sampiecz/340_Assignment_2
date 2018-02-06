@@ -45,7 +45,8 @@ void genRndNums( vector<int>& v, int seed )
 	// calls srand with the seed value seed
 	srand(seed);
 
-	for (int i = 0; i < 100; i++)
+    vector<int>::const_iterator it;
+	for (it = v.begin(); it != v.end(); it++)
 	{	
 		// generates random integers by calling rand()
 		int randomIntegers = rand() % 100 + 1;
@@ -54,7 +55,7 @@ void genRndNums( vector<int>& v, int seed )
 		cout << randomIntegers << endl;
 
 		// fills up vector with random number
-		v.push_back(randomIntegers);
+		v[*it] = randomIntegers;
 	}
 
 }
@@ -163,10 +164,7 @@ void sortVector (vector<int>& inputVec)
  ***************************************************************/
 void printStat (int totalSucCnt, int vec_size) 
 {
-    cout << "\n";
-    cout << "Total # of successful comparisons: " << totalSucCnt << endl;
-    cout << "Size of test vector: " << vec_size << endl;
-    cout << "\n";
+    cout << vec_size / totalSucCnt * 100 << "%" << endl;
 }
 
 /***************************************************************
