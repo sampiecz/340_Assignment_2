@@ -42,11 +42,21 @@ const int SEARCH_SEED = 7;
  ***************************************************************/
 void genRndNums( vector<int>& v, int seed ) 
 {
-    // calls srand with the seed value seed
-    srand(seed);
+	// calls srand with the seed value seed
+	srand(seed);
 
-    // generates random integers by calling rand()
-    int randomIntegers = rand();
+    vector<int>::const_iterator it;
+	for (it = v.begin(); it != v.end(); it++)
+	{	
+		// generates random integers by calling rand()
+		int randomIntegers = rand() % 100 + 1;
+
+		// so I can see what is going on 
+		cout << randomIntegers << endl;
+
+		// fills up vector with random number
+		v.push_back(randomIntegers);
+	}
 
 }
 
