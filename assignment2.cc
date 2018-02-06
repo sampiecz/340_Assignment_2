@@ -128,7 +128,7 @@ bool binarySearch( const vector<int>& inputVec, int x)
 int search( const vector<int>& inputVec, const vector<int>& searchVec,
             bool (*p)( const vector<int>&, int) )
 {
-    int counter = 0;
+    int successCounter = 0;
 
     vector<int>::const_iterator it;
     for(it = searchVec.begin(); it != searchVec.end(); it++)
@@ -136,7 +136,7 @@ int search( const vector<int>& inputVec, const vector<int>& searchVec,
         // pretty sure this is wrong
         if(p(inputVec, *it))
         {
-            counter += 1;
+            successCounter += 1;
         }
         else
         {
@@ -144,7 +144,7 @@ int search( const vector<int>& inputVec, const vector<int>& searchVec,
         }
     }
 
-    return counter;
+    return successCounter;
 }
 
 /***************************************************************
