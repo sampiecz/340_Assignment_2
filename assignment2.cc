@@ -45,8 +45,7 @@ void genRndNums( vector<int>& v, int seed )
 	// calls srand with the seed value seed
 	srand(seed);
 
-    vector<int>::const_iterator it;
-	for (it = v.begin(); it != v.end(); it++)
+	for (int i = 0; i < 100; i++)
 	{	
 		// generates random integers by calling rand()
 		int randomIntegers = rand() % 100 + 1;
@@ -126,6 +125,12 @@ bool binarySearch( const vector<int>& inputVec, int x)
 int search( const vector<int>& inputVec, const vector<int>& searchVec,
             bool (*p)( const vector<int>&, int) )
 {
+    vector<int>::const_iterator it;
+    for(it = searchVec.begin(); it != searchVec.end(); it++)
+    {
+        // pretty sure this is wrong
+        p(inputVec, *it);
+    }
 }
 
 /***************************************************************
@@ -158,6 +163,10 @@ void sortVector (vector<int>& inputVec)
  ***************************************************************/
 void printStat (int totalSucCnt, int vec_size) 
 {
+    cout << "\n";
+    cout << "Total # of successful comparisons: " << totalSucCnt << endl;
+    cout << "Size of test vector: " << vec_size << endl;
+    cout << "\n";
 }
 
 /***************************************************************
