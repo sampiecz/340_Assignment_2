@@ -43,10 +43,11 @@ const int SEARCH_SEED = 7;
 void genRndNums( vector<int>& v, int seed ) 
 {
     // calls srand with the seed value seed
-    v.srand(seed);
+    srand(seed);
 
     // generates random integers by calling rand()
     int randomIntegers = rand();
+
 }
 
 /***************************************************************
