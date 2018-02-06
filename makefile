@@ -17,4 +17,4 @@ assignment2.o: assignment2.cc
 
 # Pseudo-target to remove object code and executable files
 clean:
-	-rm *.o assignment2
+	-rm -f *.o assignment2

@@ -15,13 +15,15 @@
 #include <vector>
 #include <iostream>
 #include <cstdlib>
+#include <iomanip>
 
+using std::setw;
 using std::cout;
 using std::endl;
 using std::vector;
 using std::srand;
+using std::rand;
 using std::sort;
-using std::setw;
 
 const int DATA_SIZE = 100;
 const int SEARCH_SIZE = 50;
@@ -61,17 +63,17 @@ void genRndNums( vector<int>& v, int seed )
  ***************************************************************/
 bool linearSearch( const vector<int>& inputVec, int x) 
 {
-    for(unsigned int vectorIndex; vectorIndex != inputVec.end(); vectorIndex++)
+    vector<int>::const_iterator it;
+	it = find (inputVec.begin(), inputVec.end(), x);
+
+	if (it != inputVec.end())
     {
-        if(inputVec.find(vectorIndex))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+		return true;
     }
+	else
+	{
+		return false;
+	}
 }
 
 /***************************************************************
